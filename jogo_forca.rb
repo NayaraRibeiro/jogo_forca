@@ -27,27 +27,25 @@ def jogar(nome_jogador)
 				letra_encontrada total_encontrado
 			end
 		else
-			acertou = tentativa_jogador == palavra_secreta
-			if acertou
-				puts "Parabéns! Você acertou..."
+			jogador_acertou = tentativa_jogador == palavra_secreta
+			if jogador_acertou
+				acertou
 				pontuacao_jogador += 100
 				break
 			else
-				puts "Você errou..."
+				errou
 				pontuacao_jogador -= 20
 				erros += 1
 			end		
 		end
 	end
 
-	puts "Você ganhou #{pontuacao_jogador} pontos."
+	pontuacao_final pontuacao_jogador
 
 end
 
-
-
 def jogar_novamente
-    puts "Deseja jogar novamente? (S/N)"
+    quer_jogar_novamente
     quer_jogar = gets.strip
     if quer_jogar.upcase == "S" || quer_jogar.upcase == "N"
         quer_jogar.upcase == "N"    
@@ -55,24 +53,4 @@ def jogar_novamente
         opcao_invalida
         jogar_novamente
     end
-end
-
-def opcao_invalida
-
-    puts "Opção inválida. Tente novamente."
-    puts "\n\n"
-end
-
-#main
-
-nome_jogador = boas_vindas
-
-loop do 
-	
-	jogar nome_jogador
-
-	if jogar_novamente
-		break
-	end
-	
 end
