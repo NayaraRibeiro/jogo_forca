@@ -3,6 +3,7 @@ require_relative "ui"
 def jogar(nome_jogador)
 	palavra_secreta = escolhe_palavra_secreta
 	erros = 0
+	#maximo_de_tentativas = 5
 	tentativas_anteriores = []
 	pontuacao_jogador = 0
 
@@ -53,4 +54,19 @@ def jogar_novamente
         opcao_invalida
         jogar_novamente
     end
+end
+
+def jogo_da_forca
+
+	nome_jogador = boas_vindas
+
+	loop do 
+		
+		jogar nome_jogador
+
+		if jogar_novamente
+			break
+		end
+		
+	end
 end
