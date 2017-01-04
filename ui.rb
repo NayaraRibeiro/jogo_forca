@@ -36,3 +36,6 @@ def letra_nao_encontrada
 	puts "Letra não encontrada."
 end
 
+def letra_encontrada (total_encontrado)
+	puts "Letra econtrada #{total_encontrado} vezes."
+end

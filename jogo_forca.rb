@@ -24,7 +24,7 @@ def jogar(nome_jogador)
 				letra_nao_encontrada
 				erros += 1
 			else
-				puts "Letra econtrada #{total_encontrado} vezes."
+				letra_encontrada total_encontrado
 			end
 		else
 			acertou = tentativa_jogador == palavra_secreta
