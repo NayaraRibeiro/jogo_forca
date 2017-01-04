@@ -1,32 +1,4 @@
-def boas_vindas
-	puts "Bem vindo ao jogo da forca"
-	puts "Qual o seu nome?"
-	nome_jogador = gets.strip
-	puts "\n\n\n\n"
-	puts "Começaremos o jogo pra você, #{nome_jogador}. Boa sorte!"
-	sleep 1
-	nome_jogador
-end
-
-def escolhe_palavra_secreta
-	puts "A palavra está sendo escolhida..."
-	sleep 2
-	puts "\n\n\n"
-	palavra_secreta = "programador"
-	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras..."
-	sleep 1
-	palavra_secreta
-end
-
-def entrada_jogador (erros, tentativas_anteriores)
-	puts "\n\n\n\n"
-	puts "Erros até agora: #{erros}"
-	puts "Tentativas anteriores: #{tentativas_anteriores}"
-	tentativa_jogador = gets.strip
-	puts "Será que você acertou?"
-	sleep 1
-	tentativa_jogador
-end
+require_relative "ui"
 
 def jogar(nome_jogador)
 	palavra_secreta = escolhe_palavra_secreta
@@ -36,22 +8,23 @@ def jogar(nome_jogador)
 
 	while erros < 5
 		tentativa_jogador = entrada_jogador erros, tentativas_anteriores
+		if tentativas_anteriores.include? tentativa_jogador
+			tentativa_ja_realizada tentativa_jogador
+			next
+		end
+
 		tentativas_anteriores << tentativa_jogador
 		
 		tentiva_uma_letra = tentativa_jogador.size == 1
 		if tentiva_uma_letra
 			letra_procurada = tentativa_jogador [0]
-			total_encontrado = 0
-			for i in 0..(palavra_secreta.size-1)
-				if palavra_secreta[i] == letra_procurada
-					total_encontrado += 1
-				end
-			end
-			if total_encontrado != 0
-				puts "Letra econtrada #{total_encontrado} vezes."
-			else
-				puts "Letra não encontrada."
+			total_encontrado = palavra_secreta.count letra_procurada
+			
+			if total_encontrado == 0
+				letra_nao_encontrada
 				erros += 1
+			else
+				puts "Letra econtrada #{total_encontrado} vezes."
 			end
 		else
 			acertou = tentativa_jogador == palavra_secreta
@@ -90,8 +63,12 @@ def opcao_invalida
     puts "\n\n"
 end
 
+#main
+
+nome_jogador = boas_vindas
+
 loop do 
-	nome_jogador = boas_vindas
+	
 	jogar nome_jogador
 
 	if jogar_novamente
