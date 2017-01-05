@@ -13,7 +13,7 @@ def escolhe_palavra_secreta
 	sleep 2
 	puts "\n\n\n"
 	palavra_secreta = "programador"
-	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você terá pode errar até 5 tentativas."
+	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você pode errar até 5 tentativas."
 	sleep 1
 	palavra_secreta
 end
