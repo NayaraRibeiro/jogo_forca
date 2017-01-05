@@ -38,7 +38,7 @@ esqueleto
 brinde
 garra
 ditador
-megulhador
+mergulhador
 menina
 menino
 mae

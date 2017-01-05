@@ -5,7 +5,7 @@ def escolhe_palavra_secreta
 	texto = File.read("dicionario.txt")
 	todas_palavras_do_dicionario = texto.split "\n"
 	numero_escolhido = rand(todas_palavras_do_dicionario.size)
-	palavra_secreta = todas_palavras_do_dicionario [numero_escolhido]
+	palavra_secreta = todas_palavras_do_dicionario [numero_escolhido].downcase
 	alerta_palavra_secreta_escolhida palavra_secreta
 end
 
@@ -72,7 +72,7 @@ def jogar(nome_jogador)
 
 	pontuacao_final pontuacao_jogador
 	mostra_palavra_secreta palavra_secreta
-	
+
 end
 
 def jogar_novamente
