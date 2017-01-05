@@ -8,12 +8,14 @@ def boas_vindas
 	nome_jogador
 end
 
-def escolhe_palavra_secreta
+def alerta_escolhendo_palavra_secreta
 	puts "Aguarde enquanto a palavra está sendo escolhida..."
 	sleep 2
 	puts "\n\n\n"
-	palavra_secreta = "programador"
-	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você pode errar até 5 tentativas."
+end
+
+def alerta_palavra_secreta_escolhida (palavra_secreta)
+	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você pode cometer até 5 erros."
 	sleep 1
 	palavra_secreta
 end
@@ -58,6 +60,13 @@ def pontuacao_final (pontuacao_jogador)
 	puts "Você ganhou #{pontuacao_jogador} pontos."
 end
 
+def mostra_palavra_secreta palavra_secreta
+
+	puts "A palavra secreta era #{palavra_secreta}."
+	puts "\n\n\n"
+	
+end
+
 def quer_jogar_novamente
 	puts "Deseja jogar novamente? (S/N)"	
 end
@@ -67,3 +76,4 @@ def opcao_invalida
     puts "Opção inválida. Tente novamente."
     puts "\n\n"
 end
+

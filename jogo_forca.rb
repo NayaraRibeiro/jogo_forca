@@ -1,5 +1,14 @@
 require_relative "ui"
 
+def escolhe_palavra_secreta
+	alerta_escolhendo_palavra_secreta
+	texto = File.read("dicionario.txt")
+	todas_palavras_do_dicionario = texto.split "\n"
+	numero_escolhido = rand(todas_palavras_do_dicionario.size)
+	palavra_secreta = todas_palavras_do_dicionario [numero_escolhido]
+	alerta_palavra_secreta_escolhida palavra_secreta
+end
+
 def tentativa_valida (tentativas_anteriores, erros, mascara)
 	cabecalho_tentativa erros, tentativas_anteriores, mascara
 	loop do
@@ -62,7 +71,8 @@ def jogar(nome_jogador)
 	end
 
 	pontuacao_final pontuacao_jogador
-
+	mostra_palavra_secreta palavra_secreta
+	
 end
 
 def jogar_novamente
