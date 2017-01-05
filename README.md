@@ -1,6 +1,6 @@
 # Jogo da Forca
 
-O objetivo do jogo é adivinhar a palavra aleatória sorteado pela computador.
+O objetivo do jogo é adivinhar a palavra aleatória sorteada pela computador.
 
 ## Pré-requisitos
 
