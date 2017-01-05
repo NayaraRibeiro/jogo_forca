@@ -12,16 +12,21 @@ def escolhe_palavra_secreta
 	puts "Aguarde enquanto a palavra está sendo escolhida..."
 	sleep 2
 	puts "\n\n\n"
-	palavra_secreta = "palavra"
-	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você terá 5 tentativas para acertá-la."
+	palavra_secreta = "programador"
+	puts "Escolhida a palavra! Ela tem #{palavra_secreta.size} letras... Você terá pode errar até 5 tentativas."
 	sleep 1
 	palavra_secreta
 end
 
-def entrada_jogador (erros, tentativas_anteriores)
+def cabecalho_tentativa (erros, tentativas_anteriores, mascara)
 	puts "\n\n\n\n"
+	puts "Palavra secreta: #{mascara}"
 	puts "Erros até agora: #{erros}"
 	puts "Tentativas anteriores: #{tentativas_anteriores}"
+end
+
+def entrada_jogador
+	puts "\n"
 	puts "Digite uma letra ou a palavra: "
 	tentativa_jogador = gets.strip.downcase
 	puts "Será que você acertou?"

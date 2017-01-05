@@ -1,20 +1,40 @@
 require_relative "ui"
 
+def tentativa_valida (tentativas_anteriores, erros, mascara)
+	cabecalho_tentativa erros, tentativas_anteriores, mascara
+	loop do
+		tentativa_jogador = entrada_jogador
+		if tentativas_anteriores.include? tentativa_jogador
+			tentativa_ja_realizada tentativa_jogador
+		else
+			return tentativa_jogador
+		end	
+	end
+end
+
+def palavra_mascarada (palavra_secreta, tentativas_anteriores)
+	mascara = " "
+	for letra in tentativas_anteriores.chars
+		if palavra_secreta.include? letra
+			mascara << letra
+		else
+			mascara << "*"
+		end	
+	end
+	mascara
+end
+
 def jogar(nome_jogador)
 	palavra_secreta = escolhe_palavra_secreta
 	erros = 0
-	#maximo_de_tentativas = 5
 	tentativas_anteriores = []
 	pontuacao_jogador = 0
 
 	while erros < 5
-		tentativa_jogador = entrada_jogador erros, tentativas_anteriores
-		if tentativas_anteriores.include? tentativa_jogador
-			tentativa_ja_realizada tentativa_jogador
-			next
-		end
-
+		mascara = palavra_mascarada tentativas_anteriores, palavra_secreta
+		tentativa_jogador = tentativa_valida tentativas_anteriores, erros, mascara
 		tentativas_anteriores << tentativa_jogador
+
 		
 		tentiva_uma_letra = tentativa_jogador.size == 1
 		if tentiva_uma_letra
