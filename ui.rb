@@ -1,5 +1,16 @@
 def boas_vindas
-	puts "Bem vindo ao jogo da forca"
+	
+	puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+	puts "          _________                                        "
+	puts "         |         |                                       "
+	puts "         |         |                                       "
+	puts "         |        (_)      Bem vindo ao jogo da forca      "
+	puts "         |                                                 "
+	puts "         |                                                 "
+	puts "     ____|____                                             "
+	puts
+	puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+	puts
 	puts "Qual o seu nome?"
 	nome_jogador = gets.strip
 	puts "\n\n\n\n"
@@ -32,7 +43,7 @@ def entrada_jogador
 	puts "Digite uma letra ou a palavra: "
 	tentativa_jogador = gets.strip.downcase
 	puts "Será que você acertou?"
-	sleep 1
+	sleep 2
 	tentativa_jogador
 end
 
@@ -42,26 +53,35 @@ end
 
 def letra_nao_encontrada
 	puts "Letra não encontrada."
+	sleep 2
 end
 
 def letra_encontrada (total_encontrado)
-	puts "Letra econtrada #{total_encontrado} vezes."
+	if total_encontrado == 1
+		puts "Letra encontrada #{total_encontrado} vez."
+	else
+		puts "Letra encontrada #{total_encontrado} vezes."
+	end
+	sleep 2
 end
 
 def acertou
+	puts "\n\n\n\n"
 	puts "Parabéns! Você acertou..."
 end
 
 def errou
+	puts "\n\n\n\n"
 	puts "Você errou..."	
 end
 
 def pontuacao_final (pontuacao_jogador)
+	puts "\n\n"
 	puts "Você ganhou #{pontuacao_jogador} pontos."
 end
 
 def mostra_palavra_secreta palavra_secreta
-
+	puts "\n"
 	puts "A palavra secreta era #{palavra_secreta}."
 	puts "\n\n\n"
 	
